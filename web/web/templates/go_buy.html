@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<img src="./static/market/apple.jpeg" alt="apple" width="85" height="85"> 
+<form action="/go_buy" method="post" oninput="x.value=parseInt(a.value) * parseInt(b.value)">
+    <input type="text" name="fruit" value={{fruit}}>
+数量<input type="number" id="a" value="1" name="num">
+* 单价<input type="number" id="b" value="3" name="price">
+ =金额： <output name="x" for="a b" id='x'></output>
+<br><button type="submit"  onclick ='alert("购买"+document.getElementById("a").value + "斤苹果" + document.getElementById("x").value + "元")' >BUY</button></br>
+
+</form>
