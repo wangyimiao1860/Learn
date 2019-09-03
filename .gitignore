@@ -1,2 +1,4 @@
 web/web/*.pyc
 web/web/__pycache__
+web/web/controller/__pycache__
+web/web/model/__pycache__
