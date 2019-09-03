@@ -2,8 +2,11 @@
 
 from flask import render_template, Flask, request
 
-app = Flask(__name__)
-from .model import getStore, update_store
+from .. import app
+from ..model.model import getStore, update_store
+
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -34,6 +37,5 @@ def go_buy():
         fruit = request.form.get("fruit")
         num = int(request.form.get("num"))
         update_store(fruit, num)
-        print("修改库",fruit, num)
         return render_template("go_buy.html")
 
