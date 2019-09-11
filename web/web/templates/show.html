@@ -3,12 +3,19 @@
 {% for item in store['Apple'].items() %}
     {{item[0]}}: {{item[1]}}<br>
 {% endfor %}
-
 <button type="button" onclick ="location.href='/go_buy?fruit=Apple'">Go buy</button></br>  
---------------  <br>              
+--------------  <br>   
+
 <img src="./static/market/banana.jpeg" alt="banana" width="85" height="85"> 
-<br><auto>单价：1.50¥</auto>    库存: {{ store["Banana"] }}</br> 
-<br><button type="button" onclick ="location.href='/go_buy?fruit=Banana'">Go buy</button></br>                
+<br> {% for item in store['Banana'].items() %}
+        {{item[0]}}: {{item[1]}}
+        <br>
+     {% endfor %}
+<br><button type="button" onclick ="location.href='/go_buy?fruit=Banana'">Go buy</button></br>      
+--------------  <br>   
+
 <img src="./static/market/tomato.jpeg" alt="tomato" width="85" height="85"> 
-<br><auto>单价：1.00¥</auto>    库存: {{ store["Tomato"] }}</br> 
+<br> {% for item in store['Tomato'].items() %}
+         {{item[0]}}: {{item[1]}} <br>
+{% endfor %}
 <br><button type="button" onclick ="location.href='/go_buy?fruit=Tomato'">Go buy</button></br> 

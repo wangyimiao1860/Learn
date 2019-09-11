@@ -1,15 +1,35 @@
 # 
 import pandas  as pd
+import pymysql
 
 def getStore():
-    # with open("web/store.txt", 'r') as f:
-    #     store = f.readlines()
-    # name = ["Apple","Banana","Tomato"]
+    coon = pymysql.connect(
+         host = 'localhost',user = 'root',passwd = '11111111',
+         port = 3306,db = 'ods',charset = 'utf8'
+         #port必须写int类型
+         #charset必须写utf8，不能写utf-8
+     )
+    cur = coon.cursor()  #建立游标
+    cur.execute("select * from ods.o_fruit_list_d")  #查询数据
+   res = cur.fetchall()    #获取结果
+   print(res)
+   #cur.close()     #关闭游标
+   #coon.close()    #关闭连接
+   
+   #如果是插入数据，则要commit一下，把第9行换成以下两行
+   #cur.execute('insert into stu(name,sex) VALUE ("pzp","man");')
+   #coon.commit()
 
-    # return {name[i]: int(store[i]) for i in range(len(name))}
-    store_df  = pd.read_csv("web/fruit.csv", index_col=0)
-    store = {store_df['fruit'].to_list()[i]:store_df.to_dict("records")[i]  for i in range(len(store_df))}
-    return store
+
+#def getStore():
+#    # with open("web/store.txt", 'r') as f:
+#    #     store = f.readlines()
+#    # name = ["Apple","Banana","Tomato"]
+#
+#    # return {name[i]: int(store[i]) for i in range(len(name))}
+#    store_df  = pd.read_csv("web/fruit.csv", index_col=0)
+#    store = {store_df['fruit'].to_list()[i]:store_df.to_dict("records")[i]  for i in range(len(store_df))}
+#    return store
 
 def update_store(fruit, num):
     # with open("web/store.txt", 'r') as f:
